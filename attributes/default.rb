@@ -33,6 +33,14 @@ default['docker']['install_type'] = value_for_platform(
   },
   'default' => 'binary'
 )
+
+default['docker']['sysctl_path'] = value_for_platform(
+  %w(centos fedora mac_os_x redhat amazon) => {
+    'default' => '/usr/sbin/sysctl'
+  },
+  'default' => '/sbin/sysctl'
+)
+
 default['docker']['install_dir'] =
   case node['docker']['install_type']
   when 'binary' then '/usr/local/bin'
