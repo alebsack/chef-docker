@@ -10,4 +10,4 @@ ExecStart=<%= Docker::Helpers.executable(node) %> wait <%= @service_name %>
 ExecStop=<%= Docker::Helpers.executable(node) %> stop -t <%= @cmd_timeout %> <%= @service_name %>
 
 [Install]
-WantedBy=local.target
+WantedBy=multi-user.target
